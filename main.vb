@@ -17,7 +17,7 @@ Module Module1
             currentsite = Mid(sites, 1, InStr(sites, ";") - 1)
             response = GetStringFromUrl(currentsite)
             If Mid(response, 1, 6) <> "ERROR:" Then
-                If IfMatchw(response, keywords) Then
+                If IfMatchw(response, keywords, True) Then
                     Console.WriteLine(currentsite + " is hijacked.")
                     IsHijacked = True
                 End If
@@ -48,7 +48,6 @@ Module Module1
             q = UCase(q)
             list = UCase(list)
         End If
-        Dim Lenq = Len(q)
         Dim kw As String
         Do Until list = ""
             kw = Mid(list, 1, InStr(list, ";") - 1)
